@@ -6,19 +6,28 @@ import {MaterialModule} from '../material/material.module';
 import {RouterModule} from '@angular/router';
 import {MatCardModule} from '@angular/material/card';
 import { PlayerFormComponent } from './player-form/player-form.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatButtonModule} from '@angular/material/button';
+import {TetrisCoreModule} from 'ngx-tetris';
+import {HotkeyModule} from 'angular2-hotkeys';
+import { GameScoresDialogComponent } from './dialogs/game-scores-dialog/game-scores-dialog.component'
+
 
 
 
 @NgModule({
-  declarations: [IntroPageComponent, GamePageComponent, PlayerFormComponent],
+  declarations: [IntroPageComponent, GamePageComponent, PlayerFormComponent, GameScoresDialogComponent],
   imports: [
     CommonModule,
     MaterialModule,
     RouterModule,
     MatCardModule,
-    ReactiveFormsModule
+    MatButtonModule,
+    FormsModule,
+    TetrisCoreModule,
+    HotkeyModule.forRoot()
   ],
+  entryComponents: [GameScoresDialogComponent],
   exports: [IntroPageComponent, GamePageComponent]
 })
 

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-player-form',
@@ -7,18 +9,16 @@ import {FormGroup, FormBuilder, Validators} from '@angular/forms';
   styleUrls: ['./player-form.component.scss']
 })
 export class PlayerFormComponent implements OnInit {
-  playerForm : FormGroup;
-
-  constructor(private formBuilder : FormBuilder) { }
-
-  ngOnInit(): void {
-    this.buildPlayerForm();
+  credentials = {
+    email: '',
+    password: ''
   }
 
-  private buildPlayerForm() {
-    this.playerForm = this.formBuilder.group({
-      name: ['', {validators: [Validators.required, Validators.minLength(3), Validators.maxLength(10)]}],
-      email: ['', {validators: [Validators.required, Validators.email]}]
-    })
+  constructor(
+    private router: Router,
+    private toast: MatSnackBar
+  ) { }
+
+  ngOnInit(): void {
   }
 }
