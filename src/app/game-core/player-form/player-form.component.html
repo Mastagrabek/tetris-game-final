@@ -1,31 +1,22 @@
-<form class="align-content-center" [formGroup]="playerForm">
-  <div class="form-group player-form">
-    <div class="row">
-      <div class="col-sm-12 d-flex align-content-center">
-        <mat-form-field class="col-sm-12 m-auto">
-          <label>Player name: </label>
-          <input matInput formControlName="name" class="form-control" matInput type="text" placeholder="name">
-          <p class="error-message"  *ngIf="playerForm.get('name').hasError('required') && playerForm.get('name').dirty">This field may not be blank.</p>
-          <p class="error-message" *ngIf="playerForm.get('name').hasError('minLength') && playerForm.get('name').dirty">This field required minimum 3 characters.</p>
-          <p class="error-message" *ngIf="playerForm.get('name').hasError('maxLength') && playerForm.get('name').dirty">This field required maximum 3 characters</p>
-        </mat-form-field>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12 d-flex align-content-center">
-        <mat-form-field class="col-sm-12 m-auto">
-          <label>Player email: </label>
-          <input formControlName="email" class="form-control" matInput type="text" placeholder="email">
-          <p class="error-message"  *ngIf="playerForm.get('email').hasError('required')  && playerForm.get('email').dirty">This field may not be blank.</p>
-          <p class="error-message"  *ngIf="playerForm.get('email').hasError('email')  && playerForm.get('email').dirty">This email is not valid.</p>
-        </mat-form-field>
-      </div>
-    </div>
-    <div class=""row>
-      <div class="col-sm-6">
-        <button [disabled]="!playerForm.valid" class="btn btn-primary">Verify and play</button>
-      </div>
+<div class="player-form">
+  <div class="row">
+    <div class="col-sm-12 d-flex align-content-center">
+      <mat-form-field class="col-sm-12 m-auto">
+        <input matInput matInput type="text" placeholder="Name" [(ngModel)]="credentials.email">
+      </mat-form-field>
     </div>
   </div>
-</form>
+  <div class="row">
+    <div class="col-sm-12 d-flex align-content-center">
+      <mat-form-field class="col-sm-12 m-auto">
+        <input matInput type="password" placeholder="Password" [(ngModel)]="credentials.password">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <button mat-raised-button color="primary">Verify and play</button>
+    </div>
+  </div>
+</div>
 

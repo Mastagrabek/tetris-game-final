@@ -1,0 +1,14 @@
+ <h2 mat-dialog-title>Game scores</h2>
+ <mat-dialog-content>
+   <ol class="list-group list-group-number" *ngFor="let score of scores; let i = index">
+     <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="font-weight-bold">{{ score.name }}</div>
+        </div>
+        <span class="badge bg-primary rounded-pill">{{score.score}}</span>
+      </li>
+    </ol>
+  </mat-dialog-content>
+ <mat-dialog-actions class="d-flex justify-content-end">
+    <button class="float-right" mat-raised-button mat-dialog-close="" color="warn">Close</button>
+ </mat-dialog-actions>
