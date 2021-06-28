@@ -6,7 +6,9 @@ import {MaterialModule} from '../material/material.module';
 import {RouterModule} from '@angular/router';
 import {MatCardModule} from '@angular/material/card';
 import { PlayerFormComponent } from './player-form/player-form.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {TetrisCoreModule} from 'ngx-tetris'
+import {HotkeyModule} from 'angular2-hotkeys';
 
 
 
@@ -17,7 +19,9 @@ import {ReactiveFormsModule} from '@angular/forms';
     MaterialModule,
     RouterModule,
     MatCardModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TetrisCoreModule,
+    HotkeyModule.forRoot()
   ],
   exports: [IntroPageComponent, GamePageComponent]
 })

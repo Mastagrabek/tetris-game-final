@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>Game over</h2>
+<mat-dialog-content>
+  <p>Game over, <strong>{{ scoreData.name }}</strong>. Your score is
+    <span class="badge badge-primary">{{ scoreData.score }} points</span>.
+  </p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <div class="row">
+    <div class="col">
+      <button mat-raised-button mat-dialog-close="">Close</button>
+      <button [disabled]="scoreData.score===0"  mat-raised-button color="primary" (click)="addScore()">Save score</button>
+    </div>
+  </div>
+</mat-dialog-actions>

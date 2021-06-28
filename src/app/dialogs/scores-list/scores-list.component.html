@@ -1,0 +1,43 @@
+<div class="d-flex justify-content-between">
+  <h5 mat-dialog-title>Scores list</h5>
+  <button
+    (click)="changeSortingTypeAsc()"
+    *ngIf="sortingType==='descending' else sortTypeAsc"
+    mat-button color="primary"
+    matTooltip="Sort Ascending"
+    [disabled]="!scores"
+  >
+    <mat-icon>sort</mat-icon>
+    <mat-icon>arrow_downward</mat-icon>
+  </button>
+</div>
+<mat-dialog-content>
+  <div *ngIf="scores else noScoresInfo">
+    <ol  class="list-group list-group-numbered" *ngFor="let score of sortedData">
+      <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">{{ score.name }}</div>
+        </div>
+        <span class="badge bg-primary rounded-pill">{{ score.score }} points</span>
+      </li>
+    </ol>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <div>
+    <button mat-raised-button mat-dialog-close="" color="primary">Close</button>
+  </div>
+</mat-dialog-actions>
+<ng-template #sortTypeAsc>
+  <button
+    (click)="changeSortingTypeDesc()"
+    mat-button color="primary"
+    matTooltip="Sort Descending"
+  >
+    <mat-icon>sort</mat-icon>
+    <mat-icon>arrow_upward</mat-icon>
+  </button>
+</ng-template>
+<ng-template #noScoresInfo>
+  <h4>Cannot find any scores.</h4>
+</ng-template>

@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {PlayerFormComponent} from '../player-form/player-form.component';
+import {GameService} from '../../services/game.service';
 
 @Component({
   selector: 'app-intro-page',
@@ -9,9 +10,9 @@ import {PlayerFormComponent} from '../player-form/player-form.component';
 export class IntroPageComponent implements OnInit {
   @ViewChild('playerForm') flightForm : PlayerFormComponent;
 
-  constructor() { }
+
+  constructor(public gameService: GameService) { }
 
   ngOnInit(): void {
   }
-
 }
